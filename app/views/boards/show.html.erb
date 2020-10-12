@@ -2,4 +2,8 @@
 
 
 <h2><%= @board.month %></h2>
-<h4><%= @board.title %></h4>
+<h4><%= @board.title %></h4> 
+
+
+
+<%= button_to "Delete", board_path(@board), method: :delete %>
