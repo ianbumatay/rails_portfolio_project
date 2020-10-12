@@ -1,0 +1,18 @@
+<%= form_for @bulletin do |f| %>
+    <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %> 
+    </p>
+
+    <p>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+    </p>  
+
+    <p>
+    <%= f.label :rating %>
+    <%= f.number_field :rating, max:10, min:0 %>
+    </p> 
+
+    <%= f.submit %>
+     <% end %>

@@ -3,3 +3,11 @@
 <h2><%= @bulletin.title %></h2>
 <p><%= @bulletin.content %></p> 
 <p><%= @bulletin.rating %> </p>
+
+
+
+<%= button_to "Delete", bulletin_path(@bulletin), method: :delete %><br>
+
+<%= link_to "Edit", edit_bulletin_path(@bulletin) %><br>
+
+<%= link_to "Back", bulletins_path %>
