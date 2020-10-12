@@ -10,7 +10,7 @@ class BoardsController < ApplicationController
 
     def create 
       @board = Board.new(board_params) 
-      
+
       if @board.save 
         redirect_to board_path(@board) 
       else 
@@ -20,13 +20,28 @@ class BoardsController < ApplicationController
 
     def show 
       @board = Board.find(params[:id])
-    end  
+    end   
+
+    def edit 
+      @board = Board.find(params[:id])
+    end 
+
+    def update 
+      @board = Board.find(params[:id]) 
+      @board.update(board_params) 
+
+      if @board.save 
+        redirect_to boards_path 
+      else 
+        render :edit 
+      end
+    end
 
     private 
 
     def board_params 
-        params.require(:users).permit(:month, :title) 
+        params.require(:board).permit(:month, :title) 
     end
 
-    
+  
 end
