@@ -35,6 +35,12 @@ class BulletinsController < ApplicationController
       else 
         render :edit 
       end
+    end 
+
+    def destroy 
+      @bulletin = Bulletin.find(params[:id])
+      @bulletin.destroy 
+      redirect_to bulletins_path 
     end
 
     private 
