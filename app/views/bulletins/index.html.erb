@@ -1,0 +1,7 @@
+<h1> index </h1> 
+
+<% @bulletins.each do |bulletin| %> 
+  <%= link_to bulletin.title ,bulletin_path(bulletin) %> 
+  <% end %> 
+
+
