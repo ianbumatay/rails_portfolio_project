@@ -1,6 +1,11 @@
 <h1> Index page </h1>  
 
-<% @boards.each do |board| %> 
-    <h2><%= link_to board.month, board_path(board) %></h2>
-    <h4><%= board.title %></h4>
-    <% end %> 
+<% @boards.each do |board| %>
+
+    <h2><%= link_to board.month, board_path(board) %></h2> 
+          
+    <%= link_to "Bulletins", board_bulletins_path(board) %> 
+
+    <%= link_to "New Bulletins", new_board_bulletin_path(board) %> 
+    
+<% end %> 

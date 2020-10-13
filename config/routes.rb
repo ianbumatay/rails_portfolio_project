@@ -1,8 +1,18 @@
 Rails.application.routes.draw do
 
+
+  resources :boards do 
+
+    resources :bulletins, only: [:show, :index, :new, :edit] 
+    
+  end 
+  
   resources :bulletins
   
-  resources :boards 
+  resources :boards   
+
+
+
 
 
 

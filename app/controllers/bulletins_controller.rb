@@ -5,14 +5,14 @@ class BulletinsController < ApplicationController
     end 
 
     def new 
-      @bulletin = Bulletin.new 
-    end 
+       @bulletin = Bulletin.new
+    end  
 
     def create 
       @bulletin = Bulletin.new(bulletin_params)
-
+       #byebug
       if @bulletin.save 
-        redirect_to bulletin_path(@bulletin) 
+        redirect_to bulletin_path(@bulletin)
       else 
         render :new 
       end
@@ -31,7 +31,7 @@ class BulletinsController < ApplicationController
       @bulletin.update(bulletin_params) 
 
       if @bulletin.save 
-        redirect_to bulletins_path
+        redirect_to bulletin_path(@bulletin)
       else 
         render :edit 
       end
@@ -46,7 +46,7 @@ class BulletinsController < ApplicationController
     private 
 
     def bulletin_params 
-        params.require(:bulletin).permit(:title, :content, :rating)
+        params.require(:bulletin).permit(:title, :content, :rating, :board_id, :user_id)
     end
 
     
