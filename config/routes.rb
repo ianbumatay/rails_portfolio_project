@@ -1,6 +1,10 @@
-Rails.application.routes.draw do
+Rails.application.routes.draw do 
 
-  get '/signup', to: 'users#new'
+  resources :users, only: [:create, :show, :edit, :update]
+
+  get '/signup', to: 'users#new' 
+
+  #post '/signup', to: 'users#create'
 
 
   resources :boards do 
