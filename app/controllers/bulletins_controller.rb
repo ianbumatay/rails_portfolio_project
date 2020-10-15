@@ -9,7 +9,7 @@ class BulletinsController < ApplicationController
     end  
 
     def create 
-      @bulletin = Bulletin.new(bulletin_params)
+      @bulletin = current_user.bulletins.build(bulletin_params)
        #byebug
       if @bulletin.save 
         redirect_to bulletin_path(@bulletin)
@@ -46,7 +46,7 @@ class BulletinsController < ApplicationController
     private 
 
     def bulletin_params 
-        params.require(:bulletin).permit(:title, :content, :rating, :board_id, :user_id)
+        params.require(:bulletin).permit(:title, :content, :rating, :user_id)
     end
 
     

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get '/signup', to: 'users#new' 
 
-  #post '/signup', to: 'users#create' 
+  post '/signup', to: 'users#create' 
 
   get '/login', to: 'sessions#new' 
 
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   delete '/logout', to: 'sessions#destroy' 
 
-  root 'sessions#home'
+  root 'welcome#home'
 
   resources :users, only: [:create, :show, :edit, :update,]
 

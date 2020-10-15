@@ -10,14 +10,14 @@
   </head>
 
   <body>
-    <nav>
-    
+    <div>
+     
         <%= link_to "Logout", logout_path, method: 'delete' %>
-
+   
         <%= link_to "Login", login_path %> 
-        <%= link_to "Signin", signup_path %>
-
-    </nav>
+        <%= link_to "Signup", signup_path %>
+  
+    </div>
     <%= yield %>
   </body>
 </html>
