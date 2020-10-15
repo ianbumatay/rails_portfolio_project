@@ -1,6 +1,6 @@
 Rails.application.routes.draw do 
 
-  resources :users, only: [:create, :show, :edit, :update,]
+  
 
   get '/signup', to: 'users#new' 
 
@@ -10,8 +10,11 @@ Rails.application.routes.draw do
 
   post '/login', to: 'sessions#create' 
 
-  delete '/logout', to: 'sessions#destroy'
+  delete '/logout', to: 'sessions#destroy' 
 
+  root 'sessions#home'
+
+  resources :users, only: [:create, :show, :edit, :update,]
 
   resources :boards do 
 
