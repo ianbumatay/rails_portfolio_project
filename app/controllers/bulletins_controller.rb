@@ -5,12 +5,21 @@ class BulletinsController < ApplicationController
     end 
 
     def new 
-       @bulletin = Bulletin.new
-    end  
+      id = params[:board_id] 
+      if id && @board = Board.find(id) 
+        @bulletin = @board.bulletins.build 
+      else 
+        @bulletin = current_user.bulletins.build 
+      end
+    end   
+
+    # @state = State.find_by_id(params[:state_id]) if params[:state_id]
+    # @visit = @state.visits.build
 
     def create 
-      @bulletin = current_user.bulletins.build(bulletin_params)
-       #byebug
+      #byebug
+      @bulletin = current_user.bulletins.create(bulletin_params)
+      
       if @bulletin.save 
         redirect_to bulletin_path(@bulletin)
       else 
@@ -46,7 +55,7 @@ class BulletinsController < ApplicationController
     private 
 
     def bulletin_params 
-        params.require(:bulletin).permit(:title, :content, :rating, :user_id)
+        params.require(:bulletin).permit(:title, :content, :rating, :user_id, :board_id)
     end
 
     

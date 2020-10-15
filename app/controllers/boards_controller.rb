@@ -46,7 +46,7 @@ class BoardsController < ApplicationController
     private 
 
     def board_params 
-        params.require(:board).permit(:month, :title) 
+        params.require(:board).permit(:month, :title, :user_id,:board_id ) 
     end
 
   

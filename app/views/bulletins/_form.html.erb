@@ -2,9 +2,9 @@
     <%= f.label :title %>
     <%= f.text_field :title %>
     <%= f.label :content %>
-    <%= f.text_area :content %>
-
-    <%= f.collection_select :board_id, Board.all, :id, :title %> 
+    <%= f.text_field :content %> 
+    <%= f.label :Board %>
+    <%= f.collection_select :board_id, Board.all, :id, :title %>
     <%= f.hidden_field :board_id %>
     <%= f.submit %>
      <% end %>

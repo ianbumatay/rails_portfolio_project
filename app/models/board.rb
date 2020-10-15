@@ -4,4 +4,3 @@ class Board < ApplicationRecord
 end
 
 
-# has_many :users, through: :visits

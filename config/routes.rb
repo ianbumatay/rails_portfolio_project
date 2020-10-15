@@ -12,14 +12,14 @@ Rails.application.routes.draw do
 
   delete '/logout', to: 'sessions#destroy' 
 
-  root 'welcome#home'
+  root 'welcome#home' 
+
 
   resources :users, only: [:create, :show, :edit, :update,]
 
+  #nested
   resources :boards do 
-
-    resources :bulletins, only: [:show, :index, :new, :edit] 
-    
+    resources :bulletins, shallow: true 
   end 
   
   resources :bulletins

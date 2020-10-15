@@ -11,12 +11,15 @@
 
   <body>
     <div>
-     
+        <%if logged_in?%>
         <%= link_to "Logout", logout_path, method: 'delete' %>
-   
+        <%= link_to "Boards", boards_path %>
+        <%= link_to "Bulletins", bulletins_path %> 
+      
+        <%else%>
         <%= link_to "Login", login_path %> 
         <%= link_to "Signup", signup_path %>
-  
+         <%end%>
     </div>
     <%= yield %>
   </body>
