@@ -1,7 +1,14 @@
-<h1> index </h1> 
+<h1> <%= bulletin_header(@board) %></h1>  
 
-<% @bulletins.each do |bulletin| %> 
-  <h2><%= link_to bulletin.title ,bulletin_path(bulletin) %></h2>
+<ul>
+  <% @bulletins.each do |bulletin| %>
+    <li><%= bulletin.title %></li>
+    <li><%= bulletin.user.username %></li>
+  <% end %>
+</ul>
+
+ul>
+  <% @bulletins.each do |bulletin| %> 
+  <li> <h2><%= link_to bulletin.title ,bulletin_path(bulletin) %></h2> </li>
   <% end %> 
-
-
+</ul>

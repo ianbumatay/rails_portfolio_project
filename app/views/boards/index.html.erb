@@ -2,9 +2,9 @@
 
 <% @boards.each do |board| %>
 
-    <p> <h2>Board for <%= link_to board.month, board_path(board) %></h2> by: <%= current_user.username %> </p>
-          
-    <%= link_to "Go To Bulletins", board_bulletins_path(board) %> <br><br>
+    <h2>Board for <%= link_to board.month, board_path(board) %></h2> 
+
+    <p> <%= link_to "Check All Bulletins", board_bulletins_path(board)%> </p>
 
     <%= link_to "Create New Bulletins", new_board_bulletin_path(board) %> 
     

@@ -1,7 +1,12 @@
 class BulletinsController < ApplicationController 
 
     def index 
-      @bulletins = Bulletin.all 
+      id = params[:board_id]
+      if id && @board = Board.find(id) 
+        @bulletins = @board.bulletins
+      else
+        @bulletins = Bulletin.all  
+      end
     end 
 
     def new 
@@ -12,9 +17,6 @@ class BulletinsController < ApplicationController
         @bulletin = current_user.bulletins.build 
       end
     end   
-
-    # @state = State.find_by_id(params[:state_id]) if params[:state_id]
-    # @visit = @state.visits.build
 
     def create 
       #byebug
