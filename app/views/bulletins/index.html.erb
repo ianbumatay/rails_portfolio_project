@@ -2,13 +2,7 @@
 
 <ul>
   <% @bulletins.each do |bulletin| %>
-    <li><%= bulletin.title %></li>
-    <li><%= bulletin.user.username %></li>
+    <p><h2>Title: <%= link_to bulletin.title, bulletin_path(bulletin) %></h2> by: <%= bulletin.user.username %></p>
   <% end %>
 </ul>
 
-ul>
-  <% @bulletins.each do |bulletin| %> 
-  <li> <h2><%= link_to bulletin.title ,bulletin_path(bulletin) %></h2> </li>
-  <% end %> 
-</ul>

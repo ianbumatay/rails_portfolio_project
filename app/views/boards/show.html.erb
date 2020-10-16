@@ -1,8 +1,11 @@
-<h1> show page </h1> 
 
+<h2> Show all the Bulletins for the month of <%= @board.month %></h2>
 
-<h2><%= @board.month %></h2>
-<h4><%= @board.title %></h4> 
+<ul>
+    <% @board.bulletins.each do |bulletin| %>
+      <p><h4> Bulletins: <%= link_to bulletin.title, bulletin_path(bulletin) %></h4> by: <%= bulletin.user.username %></p>
+    <% end %>
+</ul>
 
 
 
