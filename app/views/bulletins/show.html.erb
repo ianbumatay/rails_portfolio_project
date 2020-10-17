@@ -1,15 +1,13 @@
 <h1> Billetins show page</h1> 
 
-<h2><%= @bulletin.title %></h2> 
-<p><%= @bulletin.content %></p> 
-
-<p><%= @bulletin.rating %> </p>
-
+<h2> Title: <%= @bulletin.title %></h2> 
+<p>Contentnt: <%= @bulletin.content %></p> 
+<p>Rating: <%= @bulletin.rating %> </p>
 
 
 
+<% if @bulletin.user == current_user %>
 <%= button_to "Delete", bulletin_path(@bulletin), method: :delete %><br>
-
 <%= link_to "Edit", edit_bulletin_path(@bulletin) %><br>
-
-<%= link_to "Back", bulletins_path %>
+<%= link_to "Back", bulletins_path %> 
+<% end %>

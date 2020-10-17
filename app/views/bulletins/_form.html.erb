@@ -5,6 +5,8 @@
     <%= f.text_field :content %> 
     <%= f.label :Board %>
     <%= f.collection_select :board_id, Board.all, :id, :title %>
-    <%= f.hidden_field :board_id %>
+    <%= f.hidden_field :board_id %> 
+    <%= f.label :rating %> 
+    <%= f.number_field :rating, max:5, min:0 %>
     <%= f.submit %>
      <% end %>
