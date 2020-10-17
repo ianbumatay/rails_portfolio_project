@@ -3,7 +3,7 @@
 
 <ul>
     <% @board.bulletins.each do |bulletin| %>
-      <p><h4> Bulletins: <%= link_to bulletin.title, bulletin_path(bulletin) %></h4> by: <%= bulletin.user.username %></p>
+      <p><h4> Bulletins: <%= link_to bulletin.month, bulletin_path(bulletin) %></h4> by: <%= bulletin.user.username %></p>
     <% end %>
 </ul>
 
