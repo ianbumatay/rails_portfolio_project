@@ -20,7 +20,7 @@ class BulletinsController < ApplicationController
 
     def create 
       #byebug
-      @bulletin = current_user.bulletins.create(bulletin_params)
+      @bulletin = current_user.bulletins.build(bulletin_params)
       
       if @bulletin.save 
         redirect_to bulletin_path(@bulletin)
