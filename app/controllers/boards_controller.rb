@@ -10,7 +10,7 @@ class BoardsController < ApplicationController
 
     def create 
       #byebug
-      @board = current_user.boards.build(board_params)
+      @board = Board.new(board_params)
 
       if @board.save 
         redirect_to boards_path

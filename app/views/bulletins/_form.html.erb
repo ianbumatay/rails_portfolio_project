@@ -1,3 +1,22 @@
+
+<% if @bulletin.errors.any? %>
+<div id="error_explanation">
+  <h2>
+    <%= pluralize(@bulletin.errors.count, "error") %>
+    prohibited this article from being saved:
+  </h2>
+ 
+  <ul>
+  <% @bulletin.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+</div>
+<% end %>
+
+
+
+
 <%= form_for @bulletin do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %>
