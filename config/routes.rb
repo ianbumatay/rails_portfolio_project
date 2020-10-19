@@ -1,10 +1,10 @@
 Rails.application.routes.draw do 
 
-  
+  resources :users, only: [:new, :create, :show]
 
-  get '/signup', to: 'users#new', as: 'signup'
+  #get '/signup', to: 'users#new', as: 'signup'
 
-  post '/signup', to: 'users#create'
+  #post '/signup', to: 'users#create'
 
   get '/login', to: 'sessions#new' 
 
@@ -12,10 +12,9 @@ Rails.application.routes.draw do
 
   delete '/logout', to: 'sessions#destroy' 
 
-  root 'welcome#home' 
+  root 'welcome#home'  
 
 
-  resources :users, only: [:new, :create, :show, :edit, :update,]
 
   #nested
   resources :boards do 

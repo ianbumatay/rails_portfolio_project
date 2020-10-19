@@ -1,6 +1,6 @@
 <h2> Sign Up </h2> 
 
-
+<%= form_for @user do |f| %>
 <% if @user.errors.any? %>
   <div id="error_explanation">
     <h2>
@@ -17,14 +17,21 @@
 <% end %>
 
 
-<%= form_for @user do |f| %>
 <%= f.label :username %>
 <%= f.text_field :username %> 
+
+
+
 <%= f.label :email %> 
-<%= f.email_field :email %>
+<%= f.email_field :email %> 
+</div>
+
+
 <%= f.label :password %>
 <%= f.password_field :password %> 
+</div>
+
 <%= f.submit "Submit" %>
 <% end %>
 
-        
+

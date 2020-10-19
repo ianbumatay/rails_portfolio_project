@@ -10,7 +10,8 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id 
       redirect_to boards_path
     else
-      login_path 
+      @error = 'Login failed. Please try again.'
+      render 'sessions/new'
     end
   end 
 
