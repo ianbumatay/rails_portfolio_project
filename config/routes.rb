@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   root 'welcome#home'  
 
-
+  get '/auth/:provider/callback' => 'sessions#omniauth'
 
   #nested
   resources :boards do 
