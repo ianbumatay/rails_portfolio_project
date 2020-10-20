@@ -6,7 +6,7 @@ class BulletinsController < ApplicationController
       if  @board            #id && @board = Board.find(id) 
         @bulletins = @board.bulletins
       else
-        @bulletins = Bulletin.all  
+        @bulletins = Bulletin.alpha
       end
     end 
 

@@ -20,9 +20,6 @@ Rails.application.routes.draw do
   resources :boards do 
     resources :bulletins, shallow: true 
   end   
-
-  
-
   
   resources :bulletins
   
