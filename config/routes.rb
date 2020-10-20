@@ -19,11 +19,16 @@ Rails.application.routes.draw do
   #nested
   resources :boards do 
     resources :bulletins, shallow: true 
-  end 
+  end   
+
+  
+
   
   resources :bulletins
   
-  resources :boards   
+  resources :boards 
+  
+
 
 
 

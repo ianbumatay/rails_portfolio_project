@@ -1,5 +1,5 @@
 class BulletinsController < ApplicationController 
-  before_action :set_board_if_nested, only: [:index, :new]
+  before_action :set_board_if_nested, only: [:index, :new, :create]
 
     def index 
                       #id = params[:board_id]

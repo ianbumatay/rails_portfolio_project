@@ -1,7 +1,7 @@
 class Bulletin < ApplicationRecord
     belongs_to :user 
     belongs_to :board 
-    has_many :ratings, dependent: :destroy
+   
     validates :title, :content, presence: true 
 
     def self.latest_bulletins
