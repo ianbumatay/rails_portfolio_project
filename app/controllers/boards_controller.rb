@@ -10,10 +10,10 @@ class BoardsController < ApplicationController
 
     def create 
       #byebug
-      @board = Board.new(board_params)
+      @board = current_user.boards.build(board_params)
 
       if @board.save 
-        redirect_to boards_path
+        redirect_to board_path(@board)
       else 
         render :new 
       end
@@ -47,7 +47,7 @@ class BoardsController < ApplicationController
     private 
 
     def board_params 
-        params.require(:board).permit(:month, :title, :user_id ) 
+        params.require(:board).permit(:month, :title) 
     end
 
   

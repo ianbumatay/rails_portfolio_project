@@ -1,5 +1,5 @@
 
-<h2> Bulletins for the month of <%= @board.month %></h2>
+<h2> Title: <%= @board.title %></h2> 
 
 <ul>
     <% @board.bulletins.each do |bulletin| %>
@@ -8,13 +8,9 @@
 </ul>
 
                       
-
+<% if @board.user == current_user %>
 <%= link_to "Create new Board", new_board_path(@board) %> |
-
 <%= link_to "Edit", edit_board_path(@board) %> |
-
 <%= link_to "Back", boards_path %> | <br>
-
-
 <%= button_to "Delete", board_path(@board), method: :delete %><br> 
-
+<% end %>

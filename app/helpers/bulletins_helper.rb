@@ -2,7 +2,7 @@ module BulletinsHelper
 
 def bulletin_header(board)
   if board                        
-   "Board for #{board.month}" 
+   "Bulletins for #{board.title}" 
   else 
     "All Bulletins" 
     end
