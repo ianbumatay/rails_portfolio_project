@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_12_142247) do
+ActiveRecord::Schema.define(version: 2020_10_20_150341) do
 
   create_table "boards", force: :cascade do |t|
     t.string "month"
@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(version: 2020_10_12_142247) do
     t.integer "rating"
     t.integer "user_id"
     t.integer "board_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer "rate"
+    t.integer "user_id"
+    t.integer "bulletin_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
