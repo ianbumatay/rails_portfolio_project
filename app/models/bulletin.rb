@@ -6,9 +6,6 @@ class Bulletin < ApplicationRecord
 
     scope :alpha, -> { order(:title) } 
 
-  
-
-
     def self.latest_bulletins
       where("created_at >=?", Time.zone.today.beginning_of_day)
     end

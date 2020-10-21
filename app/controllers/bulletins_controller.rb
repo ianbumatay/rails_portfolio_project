@@ -1,19 +1,21 @@
 class BulletinsController < ApplicationController 
-  before_action :set_board_if_nested, only: [:index, :new, :create]
+ # before_action :set_board_if_nested, only: [:index, :new, :create]
 
     def index 
-                      #id = params[:board_id]
-      if  @board            #id && @board = Board.find(id) 
+         @error = "nested"
+      if params[:board_id] && @board = Board.find_by_id(params[:board_id])
         @bulletins = @board.bulletins
-      else
+      else 
+        @error = "Board does not exist!"
         @bulletins = Bulletin.alpha
       end
     end 
 
-    def new                                                 #id = params[:board_id] 
-      if @board                                             #id && @board = Board.find(id) 
+    def new                                                
+      if params[:board_id] && @board = Board.find_by_id(params[:board_id])                                       
          @bulletin = @board.bulletins.build 
       else 
+        @error = "Board does not exist!"
         @bulletin = current_user.bulletins.build 
       end
     end  
@@ -57,11 +59,7 @@ class BulletinsController < ApplicationController
     private 
 
     def bulletin_params 
-        params.require(:bulletin).permit(:title, :content, :rating, :user_id, :board_id)
+        params.require(:bulletin).permit(:title, :content, :rating, :board_id)
     end
 
-    def set_board_if_nested 
-      @board = Board.find_by_id(params[:board_id]) if params[:board_id] 
-    end
-    
 end
