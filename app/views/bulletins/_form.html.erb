@@ -1,4 +1,4 @@
-<%= form_for @bulletin do |f| %>
+
 <% if @bulletin.errors.any? %>
 <div id="error_explanation">
   <h2>
@@ -14,14 +14,18 @@
 </div>
 <% end %>
 
+<%= form_for ([@bulletin.board, @bulletin]) do |f| %>
+
+  <% if !@bulletin.board %> #if nested
+  <%= f.label :board %>
+  <%= f.collection_select :board_id, Board.all, :id, :title %>
+  <% else %>
+  <%= f.hidden_field :board_id %> 
+   <% end %>
+
   <%= f.label :title %>
   <%= f.text_field :title %>
   <%= f.label :content %>
   <%= f.text_field :content %> 
-  <%= f.label :Board %>
-  <%= f.collection_select :board_id, Board.all, :id, :title %>
-  <%= f.hidden_field :board_id %> 
-  <%= f.label :rating %> 
-  <%= f.number_field :rating, max:5, min:0 %>
   <%= f.submit %>
 <% end %>

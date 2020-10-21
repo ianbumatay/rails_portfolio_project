@@ -1,10 +1,11 @@
- 
- <h1> create new bulletin </h1>
+ <% if @bulletin.board %> 
+ <h2> New Bulletins for <%=@bulletin.board.title%>! </h2>
+<% else %>
+ <h2> New Bulletin </h2> 
+ <%end %>
 
 
  <p><%= @error %></p>
-
-
 
  
  <%= render partial: 'form', locals: { bulletin: @bulletin } %> 
