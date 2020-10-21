@@ -1,9 +1,9 @@
-<h2> Hi! <%= current_user.username %> </h2>  
+<h1> Hi! <%= current_user.username %> </h1>  
 
 <% @boards.each do |board| %>
 
-    <h2><strong>Title: <%= link_to board.title, board_path(board) %></h2></strong> <p><%= board.user.username %></p>
-    <p> <%= board.bulletins.count %> <%= link_to "Bulletins", board_bulletins_path(board)%> </p>
+    <h3><strong>Board Title: <%= link_to board.title, board_path(board) %></h3></strong><p> by: <%= board.user.username %></p>
+    <p> You have <%= board.bulletins.count %> <%= link_to "Bulletins", board_bulletins_path(board)%> </p>
     <p> <%= link_to "Create New Bulletins", new_board_bulletin_path(board)%> </p> 
   
 <% end %> 

@@ -5,7 +5,7 @@
 
 <ul>
   <% @bulletins.each do |bulletin| %>
-    <p><h2>Title: <%= link_to bulletin.title, bulletin_path(bulletin) %></h2> by: <%= bulletin.user.username %></p> 
+    <p><h3>Title: <%= link_to bulletin.title, bulletin_path(bulletin) %></h3> by: <%= bulletin.user.username %></p> 
     <p> <%= created_at bulletin %> </P>
   <% end %>
 </ul>

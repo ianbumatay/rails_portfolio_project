@@ -4,7 +4,7 @@ def bulletin_header(board)
   if board                        
    "Bulletins for #{board.title}" 
   else 
-    "All Bulletins" 
+    "All Bulletins in Alpahbetical Order." 
     end
   end
 end

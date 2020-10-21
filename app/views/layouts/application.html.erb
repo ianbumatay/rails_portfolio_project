@@ -12,12 +12,10 @@
   <body>
     <div>
         <%if logged_in?%>
-        <%= link_to "Logout", logout_path, method: 'delete' %> |
-        <%= link_to "All Bulletins", bulletins_path %> |
+       | <%= link_to "All Bulletins", bulletins_path %> |
         <%= link_to "All Boards", boards_path %> |
-        <%= link_to "Create new Board", new_board_path(@board) %> |
-     
-
+        <%= link_to "Add Board", new_board_path(@board) %> |
+        <%= link_to "Logout", logout_path, method: 'delete' %> |
         <%else%>
         <%= link_to "Login", login_path %> |
         <%= link_to "Signup", signup_path %> |

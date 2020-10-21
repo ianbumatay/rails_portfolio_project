@@ -8,9 +8,8 @@
 </ul>
 
                       
-<% if @board.user == current_user %>
-<%= link_to "Create new Board", new_board_path(@board) %> |
+<% if @board.user == current_user %> 
 <%= link_to "Edit", edit_board_path(@board) %> |
-<%= link_to "Back", boards_path %> | <br>
-<%= button_to "Delete", board_path(@board), method: :delete %><br> 
+<%= link_to "Back", boards_path %> |
+<%= button_to "Delete", board_path(@board), method: :delete %>
 <% end %>
