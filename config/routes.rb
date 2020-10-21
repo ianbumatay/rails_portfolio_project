@@ -1,10 +1,8 @@
 Rails.application.routes.draw do 
 
-  resources :users, only: [:new, :create, :show]
+  get '/signup' => 'users#new'
+  post'/signup' => 'users#create'
 
-  #get '/signup', to: 'users#new', as: 'signup'
-
-  #post '/signup', to: 'users#create'
 
   get '/login', to: 'sessions#new' 
 
@@ -25,6 +23,8 @@ Rails.application.routes.draw do
   
   resources :boards 
   
+  resources :users
+
 
 
 
