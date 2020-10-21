@@ -10,13 +10,13 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id 
       redirect_to boards_path
     else
-      @error = 'Login failed. Please try again.'
-      render 'sessions/new'
+      flash[:message] = "Login failed. Please try again."
+      redirect_to '/login'
     end
   end 
 
   def destroy 
-    session.delete(:user_id) 
+    session.delete(:user_id)  #session.clear
     redirect_to root_path
   end  
 
