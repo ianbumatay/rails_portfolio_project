@@ -4,7 +4,7 @@ module BulletinsHelper
     if board                        
      "Bulletins for #{board.title}" 
     else 
-     "All Bulletins in Alpahbetical Order." 
+     "All Bulletins in Alphabetical Order." 
      end
    end
 
@@ -14,6 +14,14 @@ module BulletinsHelper
       "New Bulletins for #{board.title}" 
     else 
        "New Bulletin" 
+     end 
+   end 
+
+   def bulletin_edit_header(board)
+    if board 
+      "Edit Bulletins for #{board.title}" 
+    else 
+       "Edit Bulletin" 
      end 
    end
 

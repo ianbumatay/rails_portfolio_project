@@ -1,21 +1,23 @@
-class BulletinsController < ApplicationController 
- # before_action :set_board_if_nested, only: [:index, :new, :create]
+class BulletinsController < ApplicationController  
+  before_action :if_not_logged_in, only: [:create, :new, :edit, :update]
+  before_action :set_board_if_nested, only: [:index, :new] 
+  #before_action :params_id, only: [:show, :edit, :update, :destroy]
 
     def index 
-         @error = "nested"
-      if params[:board_id] && @board = Board.find_by_id(params[:board_id])
+       
+      if @board 
         @bulletins = @board.bulletins
       else 
-        @error = "Board does not exist!"
+        #flash[:message] = "Board does not exist!" 
         @bulletins = Bulletin.alpha
       end
     end 
 
     def new                                                
-      if params[:board_id] && @board = Board.find_by_id(params[:board_id])                                       
+      if @board                                       
          @bulletin = @board.bulletins.build 
       else 
-        @error = "Board does not exist!"
+        #flash[:message] = "Board does not exist!"
         @bulletin = current_user.bulletins.build 
       end
     end  
@@ -32,15 +34,15 @@ class BulletinsController < ApplicationController
     end
 
     def show 
-      @bulletin = Bulletin.find(params[:id])
+    @bulletin = Bulletin.find(params[:id])
     end   
 
     def edit 
-      @bulletin = Bulletin.find(params[:id])
+     @bulletin = Bulletin.find(params[:id])
     end 
 
     def update 
-      @bulletin = Bulletin.find(params[:id]) 
+     @bulletin = Bulletin.find(params[:id]) 
       @bulletin.update(bulletin_params) 
 
       if @bulletin.save 
@@ -60,6 +62,15 @@ class BulletinsController < ApplicationController
 
     def bulletin_params 
         params.require(:bulletin).permit(:title, :content, :rating, :board_id)
+    end 
+
+    def set_board_if_nested 
+      @board = Board.find_by_id(params[:board_id]) if params[:board_id]
+      #@board = params[:board_id] && @board = Board.find_by_id(params[:board_id])
+    end 
+
+    def params_id 
+      @bulletin = Bulletin.find(params[:id])
     end
 
 end

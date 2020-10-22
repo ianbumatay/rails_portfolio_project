@@ -21,7 +21,13 @@
         <%= link_to "Sign Up", signup_path %> |
         <%= link_to "Log In with Google", '/auth/google_oauth2' %> |
          <%end%>
-    </div>
+    </div><br>
+
+    <div> 
+       <%= flash[:message] if flash[:message] %>  
+       <%= @error %>
+    </div> 
+
     <%= yield %>
   </body>
 </html>

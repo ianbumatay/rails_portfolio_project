@@ -14,9 +14,9 @@
 </div>
 <% end %>
 
-<%= form_for ([@bulletin.board, @bulletin]) do |f| %>
+<%= form_for ([@board, @bulletin]) do |f| %>
 
-  <% if !@bulletin.board %> #if nested
+  <% if !@bulletin.board %> 
   <%= f.label :board %>
   <%= f.collection_select :board_id, Board.all, :id, :title %>
   <% else %>
