@@ -3,7 +3,7 @@ class BoardsController < ApplicationController
   before_action :set_params_id, only: [:show, :edit, :update, :destroy]
 
     def index 
-      @boards = Board.all.most_bulletins
+      @boards = Board.all
     end  
 
     def new 
