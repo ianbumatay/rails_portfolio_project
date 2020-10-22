@@ -4,7 +4,9 @@ class Board < ApplicationRecord
     has_many :users, through: :bulletins
     validates :title, presence: true 
 
-    scope :most_bulletins, -> { joins(:bulletins).group("board.id").order("count(boards.id) desc")}
+    scope :alpha, -> { order(:title) } 
+
+    scope :most_bulletins, -> { joins(:bulletins).group("boards.id").order("count(boards.id) desc")}
 end
 
 
