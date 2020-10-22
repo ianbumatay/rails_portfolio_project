@@ -3,7 +3,11 @@ class BoardsController < ApplicationController
   before_action :set_params_id, only: [:show, :edit, :update, :destroy]
 
     def index 
-      @boards = Board.all
+      if params[:user_id] && @user = User.find_by_id(params[:user_id]) 
+         @boards = @user.boards.most_bulletins
+      else 
+        @boards = Board.all 
+      end
     end  
 
     def new 
@@ -39,7 +43,7 @@ class BoardsController < ApplicationController
     private 
 
     def board_params 
-        params.require(:board).permit(:month, :title) 
+        params.require(:board).permit(:month, :title, :user_id) 
     end 
 
     def set_params_id

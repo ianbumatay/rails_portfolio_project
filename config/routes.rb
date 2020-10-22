@@ -16,6 +16,10 @@ Rails.application.routes.draw do
   resources :boards do 
     resources :bulletins, shallow: true 
   end   
+
+  resources :users do 
+    resources :boards, only: :index 
+  end
   
   resources :bulletins
   
