@@ -1,9 +1,5 @@
- <% if @bulletin.board %> 
- <h2> New Bulletins for <%=@bulletin.board.title%>! </h2>
-<% else %>
- <h2> New Bulletin </h2> 
- <%end %>
-
+ 
+<h2><%= bulletin_new_header(@board) %></h2>
 
  <p><%= @error %></p>
 
