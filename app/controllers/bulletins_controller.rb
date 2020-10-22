@@ -1,7 +1,7 @@
 class BulletinsController < ApplicationController  
   before_action :if_not_logged_in, only: [:create, :new, :edit, :update]
   before_action :set_board_if_nested, only: [:index, :new] 
-  #before_action :params_id, only: [:show, :edit, :update, :destroy]
+  before_action :set_params_id, only: [:show, :edit, :update, :destroy]
 
     def index 
        
@@ -34,15 +34,12 @@ class BulletinsController < ApplicationController
     end
 
     def show 
-    @bulletin = Bulletin.find(params[:id])
     end   
 
     def edit 
-     @bulletin = Bulletin.find(params[:id])
     end 
 
     def update 
-     @bulletin = Bulletin.find(params[:id]) 
       @bulletin.update(bulletin_params) 
 
       if @bulletin.save 
@@ -53,7 +50,6 @@ class BulletinsController < ApplicationController
     end 
 
     def destroy 
-      @bulletin = Bulletin.find(params[:id])
       @bulletin.destroy 
       redirect_to bulletins_path 
     end
@@ -69,7 +65,7 @@ class BulletinsController < ApplicationController
       #@board = params[:board_id] && @board = Board.find_by_id(params[:board_id])
     end 
 
-    def params_id 
+    def set_params_id 
       @bulletin = Bulletin.find(params[:id])
     end
 
