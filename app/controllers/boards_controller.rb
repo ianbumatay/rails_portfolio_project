@@ -1,4 +1,6 @@
 class BoardsController < ApplicationController 
+  before_action :if_not_logged_in
+  before_action :set_params_id, only: [:show, :edit, :update, :destroy]
 
     def index 
       @boards = Board.all
@@ -19,16 +21,7 @@ class BoardsController < ApplicationController
       end
     end
 
-    def show 
-      @board = Board.find(params[:id])
-    end   
-
-    def edit 
-      @board = Board.find(params[:id])
-    end 
-
     def update 
-      @board = Board.find(params[:id]) 
       @board.update(board_params) 
 
       if @board.save 
@@ -39,7 +32,6 @@ class BoardsController < ApplicationController
     end 
 
     def destroy 
-      @board = Board.find(params[:id]) 
       @board.destroy 
       redirect_to boards_path
     end
@@ -48,7 +40,10 @@ class BoardsController < ApplicationController
 
     def board_params 
         params.require(:board).permit(:month, :title) 
-    end
+    end 
 
+    def set_params_id
+      @board = Board.find(params[:id]) 
+    end
   
 end

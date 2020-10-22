@@ -33,12 +33,6 @@ class BulletinsController < ApplicationController
       end
     end
 
-    def show 
-    end   
-
-    def edit 
-    end 
-
     def update 
       @bulletin.update(bulletin_params) 
 
@@ -62,7 +56,6 @@ class BulletinsController < ApplicationController
 
     def set_board_if_nested 
       @board = Board.find_by_id(params[:board_id]) if params[:board_id]
-      #@board = params[:board_id] && @board = Board.find_by_id(params[:board_id])
     end 
 
     def set_params_id 
