@@ -1,9 +1,9 @@
 class BoardsController < ApplicationController 
-  before_action :if_not_logged_in
+  before_action :if_not_logged_in, only: [:create, :new, :edit, :update]
   before_action :set_params_id, only: [:show, :edit, :update, :destroy]
 
     def index 
-      if params[:user_id] && @user = User.find_by_id(params[:user_id]) 
+      if params[:user_id] && @user = User.find_by_id(params[:user_id])
          @boards = @user.boards.most_bulletins
       else 
         @boards = Board.all 

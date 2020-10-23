@@ -11,10 +11,9 @@
 
   <body>
     <div>
-       <h2> HeLLo! <%= current_user.username if logged_in?%> </h2>  
+       <h2> Hi! <%= current_user.username if logged_in?%> </h2>  
         <%if logged_in?%>
-       |<%= link_to "All Bulletins", bulletins_path %> |
-       
+      | <%= link_to "All Bulletins", bulletins_path %> | 
         <%= link_to "All Boards", boards_path %> |
         <%= link_to "Add Board", new_board_path(@board) %> |
         <%= link_to "Logout", logout_path, method: 'delete' %> |

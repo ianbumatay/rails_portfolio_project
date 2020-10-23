@@ -2,9 +2,11 @@
 <h2><%= board_header(@user) %></h2>
 
 
+
+
 <% @boards.each do |board| %>
 
-    <h3><strong>Board Title: <%= link_to board.title, board_path(board) %></h3></strong><p> by: <%= board.user.username %></p>
+    <h3>Board Title: <%= link_to board.title, board_path(board) %></h3><p> by: <%= board.user.username %></p>
     <p> You have <%= board.bulletins.count %> <%= link_to "Bulletins", board_bulletins_path(board)%> </p>
     <p> <%= link_to "Create New Bulletins", new_board_bulletin_path(board)%> </p> 
   
