@@ -6,7 +6,7 @@ class BulletinsController < ApplicationController
     def index 
        
       if @board 
-        @bulletins = @board.bulletins.alpha
+        @bulletins = @board.bulletins
       else 
         #flash[:message] = "Board does not exist!" 
         @bulletins = Bulletin.alpha

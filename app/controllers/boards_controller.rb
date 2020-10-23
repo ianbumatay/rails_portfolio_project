@@ -4,7 +4,8 @@ class BoardsController < ApplicationController
 
     def index 
       if params[:user_id] && @user = User.find_by_id(params[:user_id])
-         @boards = @user.boards.most_bulletins
+         @boards = @user.boards
+         #byebug
       else 
         @boards = Board.all 
       end
