@@ -1,12 +1,9 @@
 
 
-<h2>Welcome <%= @user.username %> Profile</h2>  
+<p><h2><%= @user.username %>'s </h2><%= link_to "Board with Most Bulletins", user_boards_path(@user) %></P>
+ 
 
 
-
- 
-
-<%= link_to "Check Board with Most Bulletins", user_boards_path(@user) %>
  
 
 
