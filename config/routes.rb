@@ -1,7 +1,9 @@
 Rails.application.routes.draw do 
 
   get '/signup' => 'users#new'
-  post'/signup' => 'users#create'
+  post'/signup' => 'users#create' 
+
+  
 
 
   get '/login', to: 'sessions#new' 
@@ -18,7 +20,7 @@ Rails.application.routes.draw do
   end   
 
   resources :users do 
-    resources :boards, only: :index
+    resources :boards, shallow: true
   end
   
   resources :bulletins

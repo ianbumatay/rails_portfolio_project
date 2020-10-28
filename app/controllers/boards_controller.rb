@@ -4,10 +4,9 @@ class BoardsController < ApplicationController
 
     def index 
       if params[:user_id] && @user = User.find_by_id(params[:user_id])
-         @boards = @user.boards
-         #byebug
-      else 
-        @boards = Board.all 
+         @boards = @user.boards.most_bulletins
+      else
+        @boards = Board.all
       end
     end  
 
@@ -16,7 +15,7 @@ class BoardsController < ApplicationController
     end 
 
     def create 
-      #byebug
+      #byebug 
       @board = current_user.boards.build(board_params)
 
       if @board.save 

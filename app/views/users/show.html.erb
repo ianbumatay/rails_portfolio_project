@@ -1,8 +1,14 @@
 
 
-<h2>Welcome <%= @user.username %></h2> 
+<h2>Welcome <%= @user.username %> Profile</h2>  
+
+
+
+ 
+
+<%= link_to "Check Board with Most Bulletins", user_boards_path(@user) %>
  
-<%= link_to "Go To Boards", boards_path %> 
+
 
 
 
