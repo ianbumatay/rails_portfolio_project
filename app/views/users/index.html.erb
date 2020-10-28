@@ -1,5 +1,5 @@
 <h2> All Users <h2> 
 
 <% @users.each do |user| %> 
-   <ol> <%= user.username %> <%= link_to "Profile", user_path(user) %> </ol>
+   <p><h4> <%= user.username %>'s <%= link_to "Board with Most Bulletins", user_boards_path(user) %></h4> </p>
 <%end %>
