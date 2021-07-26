@@ -4,7 +4,6 @@ class SessionsController < ApplicationController
   end 
 
   def create 
-    #byebug
     @user = User.find_by(username: params[:user][:username]) 
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id 
@@ -16,7 +15,7 @@ class SessionsController < ApplicationController
   end 
 
   def destroy 
-    session.delete(:user_id)  #session.clear
+    session.delete(:user_id)  
     redirect_to root_path
   end  
 

@@ -15,7 +15,6 @@ class BoardsController < ApplicationController
     end 
 
     def create 
-      #byebug 
       @board = current_user.boards.build(board_params)
 
       if @board.save 

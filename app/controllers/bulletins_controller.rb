@@ -8,7 +8,6 @@ class BulletinsController < ApplicationController
       if @board 
         @bulletins = @board.bulletins
       else 
-        #flash[:message] = "Board does not exist!" 
         @bulletins = Bulletin.alpha
       end
     end 
@@ -17,13 +16,11 @@ class BulletinsController < ApplicationController
       if @board                                       
          @bulletin = @board.bulletins.build 
       else 
-        #flash[:message] = "Board does not exist!"
         @bulletin = current_user.bulletins.build 
       end
     end  
 
     def create 
-      #byebug
       @bulletin = current_user.bulletins.build(bulletin_params)
       
       if @bulletin.save 
